@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <h1>To-Do List</h1>
+    
+    <!-- Input field for task, start time, and end time -->
+    <input type="text" id="task-input" placeholder="Add a new task">
+    <div class="time-inputs">
+      <input type="time" id="start-time" placeholder="Start time">
+      <input type="time" id="end-time" placeholder="End time">
+    </div>
+
+    <button id="add-task-btn">Add Task</button>
+    
+    <!-- Task List -->
+    <ul id="task-list"></ul>
+    
+    <!-- Notification -->
+    <div id="notification" class="notification"></div>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,143 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f2f2f2; /* Light gray background for a clean feel */
+    color: #333; /* Dark text for readability */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .app-container {
+    background-color: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    width: 100%;
+    max-width: 600px; /* Restrict the width for a neat layout */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #5A4FCF; /* Purple color for the header */
+    text-align: center;
+  }
+  
+  input[type="text"], input[type="time"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+  }
+  
+  input[type="text"]:focus, input[type="time"]:focus {
+    border-color: #5A4FCF; /* Purple border on focus */
+    outline: none;
+  }
+  
+  button {
+    padding: 12px 30px;
+    background-color: #5A4FCF; /* Purple button color */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  button:hover {
+    background-color: #4c3c9e; /* Slightly darker purple on hover */
+    transform: scale(1.05);
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
+  }
+  
+  li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    margin: 10px 0;
+    background-color: #fafafa; /* Light gray background for task items */
+    border-radius: 8px;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  li:hover {
+    background-color: #f1f1f1; /* Subtle hover effect for tasks */
+  }
+  
+  li.completed {
+    text-decoration: line-through;
+    color: #aaa; /* Light gray for completed tasks */
+  }
+  
+  button.edit-btn, button.delete-btn {
+    background-color: #5A4FCF; /* Purple for edit and delete buttons */
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    margin-left: 10px;
+  }
+  
+  button.edit-btn:hover, button.delete-btn:hover {
+    background-color: #4c3c9e; /* Darker purple on hover */
+  }
+  
+  button.delete-btn {
+    background-color: #e53935; /* Red color for delete button */
+  }
+  
+  button.delete-btn:hover {
+    background-color: #c62828; /* Darker red on hover */
+  }
+  
+  button.edit-btn {
+    background-color: #4c9ff5; /* Light blue for edit button */
+  }
+  
+  button.edit-btn:hover {
+    background-color: #3a8fe0; /* Darker blue on hover */
+  }
+  
+  .task-time {
+    font-size: 0.9rem;
+    color: #555;
+  }
+  
+  .notification {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #5A4FCF; /* Purple notification background */
+    color: white;
+    border-radius: 5px;
+    display: none; /* Hide by default */
+    font-size: 1rem;
+    text-align: center;
+  }
+  
+  .notification.show {
+    display: block; /* Show the notification */
+  }
+  
