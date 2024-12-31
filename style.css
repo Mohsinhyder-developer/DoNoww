@@ -1,143 +1,201 @@
+/* Global reset and box-sizing */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #f2f2f2;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* App container styles */
+.app-container {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 40px;
+  max-width: 600px;
+  width: 100%;
+  height: 95vh;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+/* Heading */
+h1 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  color: #5A4FCF;
+  text-align: center;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+/* Inputs and Button */
+input[type="text"], input[type="time"] {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus, input[type="time"]:focus {
+  border-color: #5A4FCF;
+  outline: none;
+}
+
+button {
+  padding: 12px 30px;
+  background: #5A4FCF;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #4c3c9e;
+  transform: scale(1.05);
+}
+
+/* Task List */
+ul {
+  list-style-type: none;
+  padding: 0;
+  width: 100%;
+  flex-grow: 1;
+  overflow-y: auto;
+  max-height: 400px;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  margin: 10px 0;
+  background-color: #fafafa;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  transition: background-color 0.3s ease;
+}
+
+li:hover {
+  background-color: #f1f1f1;
+}
+
+#task-list::-webkit-scrollbar {
+  display: none;
+}
+
+li.completed {
+  text-decoration: line-through;
+  color: #aaa;
+}
+
+button.delete-btn {
+  background-color: #e53935;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+}
+
+button.delete-btn:hover {
+  background-color: #c62828;
+}
+
+.task-time {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* Notification */
+.notification {
+  position: fixed;
+  top: 20px; /* Positioning at the top */
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 15px 25px;
+  background: rgba(90, 79, 207, 0.8);
+  color: white;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  text-align: center;
+  z-index: 9999;
+  display: none;
+  width: auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  animation: slideDown 0.5s ease-in-out;
+}
+
+.notification.show {
+  display: block;
+}
+
+/* Animation for notification */
+@keyframes slideDown {
+  from {
+    top: -100px;
   }
-  
-  body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f2f2f2; /* Light gray background for a clean feel */
-    color: #333; /* Dark text for readability */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+  to {
+    top: 20px;
   }
-  
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
   .app-container {
-    background-color: white;
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
-    width: 100%;
-    max-width: 600px; /* Restrict the width for a neat layout */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    padding: 20px;
+    width: 90%;
   }
-  
+
   h1 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: #5A4FCF; /* Purple color for the header */
-    text-align: center;
+    font-size: 1.8rem;
   }
-  
-  input[type="text"], input[type="time"] {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
+
+  input[type="text"], input[type="time"], button {
     font-size: 1rem;
-    transition: border-color 0.3s ease;
   }
-  
-  input[type="text"]:focus, input[type="time"]:focus {
-    border-color: #5A4FCF; /* Purple border on focus */
-    outline: none;
-  }
-  
-  button {
-    padding: 12px 30px;
-    background-color: #5A4FCF; /* Purple button color */
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-  }
-  
-  button:hover {
-    background-color: #4c3c9e; /* Slightly darker purple on hover */
-    transform: scale(1.05);
-  }
-  
-  ul {
-    list-style-type: none;
-    padding: 0;
-    width: 100%;
-  }
-  
+
   li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px;
-    margin: 10px 0;
-    background-color: #fafafa; /* Light gray background for task items */
-    border-radius: 8px;
-    font-size: 1.1rem;
-    transition: background-color 0.3s ease;
-  }
-  
-  li:hover {
-    background-color: #f1f1f1; /* Subtle hover effect for tasks */
-  }
-  
-  li.completed {
-    text-decoration: line-through;
-    color: #aaa; /* Light gray for completed tasks */
-  }
-  
-  button.edit-btn, button.delete-btn {
-    background-color: #5A4FCF; /* Purple for edit and delete buttons */
-    padding: 8px 16px;
-    font-size: 0.9rem;
-    border-radius: 5px;
-    cursor: pointer;
-    color: white;
-    margin-left: 10px;
-  }
-  
-  button.edit-btn:hover, button.delete-btn:hover {
-    background-color: #4c3c9e; /* Darker purple on hover */
-  }
-  
-  button.delete-btn {
-    background-color: #e53935; /* Red color for delete button */
-  }
-  
-  button.delete-btn:hover {
-    background-color: #c62828; /* Darker red on hover */
-  }
-  
-  button.edit-btn {
-    background-color: #4c9ff5; /* Light blue for edit button */
-  }
-  
-  button.edit-btn:hover {
-    background-color: #3a8fe0; /* Darker blue on hover */
-  }
-  
-  .task-time {
-    font-size: 0.9rem;
-    color: #555;
-  }
-  
-  .notification {
-    margin-top: 20px;
-    padding: 10px;
-    background-color: #5A4FCF; /* Purple notification background */
-    color: white;
-    border-radius: 5px;
-    display: none; /* Hide by default */
     font-size: 1rem;
-    text-align: center;
+    padding: 12px;
   }
-  
-  .notification.show {
-    display: block; /* Show the notification */
+}
+
+@media (max-width: 480px) {
+  .app-container {
+    padding: 15px;
   }
-  
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  input[type="text"], input[type="time"], button {
+    font-size: 0.9rem;
+  }
+
+  li {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+}

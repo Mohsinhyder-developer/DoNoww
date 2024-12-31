@@ -27,7 +27,7 @@ function renderTasks() {
     deleteButton.textContent = 'Delete';
     deleteButton.classList.add('delete-btn');
     deleteButton.addEventListener('click', () => deleteTask(index));
-    
+
     li.appendChild(taskText);
     li.appendChild(timeText);
     li.appendChild(deleteButton);
@@ -127,8 +127,7 @@ function showBrowserNotification(message) {
     } else {
       console.error('Notification permission denied');
     }
-  }
-  
+}
 
 // Event listeners
 addTaskButton.addEventListener('click', addTask);
@@ -143,4 +142,3 @@ renderTasks();
 
 // Check the task time every minute
 setInterval(checkTasksTime, 60000); // Every minute
-
